@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 水滴主体 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,23 C54,23 33,48 33,62.5 C33,74.2 42.4,83.5 54,83.5 C65.6,83.5 75,74.2 75,62.5 C75,48 54,23 54,23 Z" />
+
+    <!-- 水滴内的半透明高光，暗示「滤镜叠加」 -->
+    <path
+        android:fillColor="#332F6BFF"
+        android:pathData="M54,36 C54,36 40.5,54 40.5,64 C40.5,71.6 46.5,77.6 54,77.6 L54,36 Z" />
+
+    <path
+        android:fillColor="#66FFFFFF"
+        android:pathData="M44,58 C44,58 38.5,63.6 38.5,68.4 C38.5,72.2 41.4,75.1 45.2,75.1 C49,75.1 51.9,72.2 51.9,68.4 C51.9,63.6 44,58 44,58 Z" />
+
+</vector>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>屏幕滤镜 · 小红书宣传海报 1242×1656</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .poster {
+    position: relative;
+    width: 1242px;
+    height: 1656px;
+    box-sizing: border-box;
+    padding: 72px 88px 58px;
+    background: #F4F5F7;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .blob { position: absolute; border-radius: 50%; pointer-events: none; }
+  .blob-1 { width: 820px; height: 820px; left: -280px; top: -300px;
+            background: radial-gradient(circle, rgba(47,123,255,0.11) 0%, rgba(47,123,255,0) 68%); }
+  .blob-2 { width: 900px; height: 900px; right: -360px; bottom: -340px;
+            background: radial-gradient(circle, rgba(47,123,255,0.08) 0%, rgba(47,123,255,0) 70%); }
+
+  .cols { position: relative; display: flex; gap: 56px; flex: 1; min-height: 0; }
+  .left { width: 465px; display: flex; flex-direction: column; justify-content: center; }
+  .right { width: 545px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  /* ---------- 品牌 ---------- */
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .logo {
+    width: 68px; height: 68px; border-radius: 19px; background: #2F7BFF;
+    display: flex; align-items: center; justify-content: center; flex: none;
+    box-shadow: 0 12px 26px rgba(47,123,255,0.34);
+  }
+  .appname { font-size: 27px; font-weight: 700; color: #101114; letter-spacing: 1px; }
+  .meta { margin-top: 6px; font-size: 17px; color: #A8ADB5; letter-spacing: 0.6px; }
+
+  /* ---------- 标题 ---------- */
+  .rule { width: 52px; height: 5px; border-radius: 3px; background: #2F7BFF; margin-bottom: 26px; }
+  .title { margin: 0; font-size: 62px; line-height: 1.26; font-weight: 700; color: #101114; letter-spacing: 0.5px; }
+  .subtitle { margin: 26px 0 0; font-size: 23px; color: #8A8F98; letter-spacing: 3px; }
+
+  /* ---------- 卖点 ---------- */
+  .points { display: flex; flex-direction: column; gap: 30px; margin-top: 92px; }
+  .pt-head { display: flex; align-items: center; gap: 13px; }
+  .num {
+    width: 27px; height: 27px; border-radius: 50%; flex: none;
+    background: rgba(47,123,255,0.10); color: #2F7BFF;
+    font-size: 15px; font-weight: 700; line-height: 27px; text-align: center;
+  }
+  .pt-title { font-size: 27px; font-weight: 600; color: #101114; letter-spacing: 0.4px; }
+  .pt-desc { margin: 9px 0 0 40px; font-size: 19px; line-height: 1.62; color: #6B7280; }
+
+  /* ---------- 黑位对比 ---------- */
+  .cmp {
+    margin-top: 66px;
+    background: #FFFFFF; border: 1px solid #EDEFF3; border-radius: 16px; padding: 20px 22px 22px;
+    box-shadow: 0 10px 26px rgba(27,42,74,0.05);
+  }
+  .cmp-h { font-size: 14px; font-weight: 600; color: #8A8F98; letter-spacing: 1.6px; margin-bottom: 16px; }
+  .cmp-row { display: flex; gap: 16px; }
+  .cmp-cell { flex: 1; }
+  .cmp-sw { width: 48px; height: 48px; border-radius: 13px; box-shadow: 0 0 0 1px rgba(11,27,51,0.12); }
+  .cmp-t { margin-top: 13px; font-size: 17px; font-weight: 600; color: #101114; }
+  .cmp-d { margin-top: 5px; font-size: 14px; color: #A8ADB5; }
+  .cmp-cell.good .cmp-d { color: #2F7BFF; }
+
+  /* ---------- 通栏页脚 ---------- */
+  .footer {
+    position: relative; margin-top: 30px; padding-top: 22px; border-top: 1px solid #E3E6EB;
+    display: flex; align-items: baseline; gap: 18px;
+    font-size: 16px; line-height: 1.6; color: #A8ADB5;
+  }
+  .footer b { flex: none; font-size: 14px; font-weight: 600; color: #8A8F98; letter-spacing: 1.6px; }
+
+  /* ---------- 手机 ---------- */
+  .phone {
+    width: 545px; border-radius: 58px; background: #FFFFFF; padding: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 44px 96px rgba(27,42,74,0.16), 0 10px 28px rgba(27,42,74,0.08), 0 0 0 1px rgba(27,42,74,0.05);
+  }
+  .screen { border-radius: 46px; background: #F4F5F7; overflow: hidden; }
+  .caption { margin-top: 26px; font-size: 17px; color: #A8ADB5; letter-spacing: 0.8px; }
+
+  /* ---------- App 界面还原 ---------- */
+  .statusbar { display: flex; align-items: center; justify-content: space-between; padding: 20px 30px 0; }
+  .clock { font-size: 19px; font-weight: 600; color: #101114; letter-spacing: 0.4px; }
+  .statusbar .glyphs { display: flex; align-items: center; gap: 7px; }
+
+  .appbody { padding: 26px 27px 27px; }
+  .apphead { display: flex; align-items: flex-start; }
+  .apphead h2 { margin: 0; font-size: 45px; font-weight: 700; color: #101114; letter-spacing: 0.5px; }
+  .apphead .sub { margin-top: 7px; font-size: 17px; color: #8A8F98; letter-spacing: 0.5px; }
+  .live { display: flex; align-items: center; gap: 7px; margin-top: 9px; }
+  .live .dot { width: 12px; height: 12px; border-radius: 50%; background: #2F7BFF; }
+  .live span { font-size: 17px; font-weight: 500; color: #2F7BFF; }
+
+  .card {
+    margin-top: 26px; background: #FFFFFF; border-radius: 32px; padding: 27px;
+    box-shadow: 0 14px 34px rgba(27,42,74,0.07), 0 2px 8px rgba(27,42,74,0.04);
+  }
+  .sect { display: flex; align-items: baseline; gap: 8px; }
+  .sect .m { font-size: 20px; font-weight: 700; color: #101114; }
+  .sect .s { font-size: 16px; color: #A8ADB5; }
+  .sect .spacer { flex: 1; }
+  .pdot { width: 24px; height: 24px; border-radius: 50%; background: #A9B7C3; box-shadow: 0 0 0 1px rgba(11,27,51,0.10); align-self: center; }
+
+  .grid { display: flex; flex-wrap: wrap; gap: 22px 16px; margin-top: 22px; }
+  .cell { width: 127px; }
+  .swatch { width: 127px; height: 88px; border-radius: 21px; box-shadow: 0 0 0 1px #EDF0F4 inset; }
+  .swatch.on { box-shadow: 0 0 0 3px #2F7BFF inset; }
+  .clabel { margin-top: 10px; font-size: 17px; color: #6B7280; text-align: center; }
+  .clabel.on { color: #2F7BFF; font-weight: 500; }
+  .addchip { width: 127px; height: 88px; border-radius: 21px; background: #EFF2F6;
+             border: 1px solid #EDF0F4; display: flex; align-items: center; justify-content: center; }
+  .plus { position: relative; width: 29px; height: 29px; }
+  .plus::before, .plus::after { content: ''; position: absolute; background: #2F7BFF; border-radius: 2px; }
+  .plus::before { left: 12.75px; top: 0; width: 3.5px; height: 29px; }
+  .plus::after  { top: 12.75px; left: 0; width: 29px; height: 3.5px; }
+
+  .hairline { height: 1px; background: #EDEFF3; margin: 30px 0 26px; }
+
+  .param { margin-bottom: 15px; }
+  .param .row1 { display: flex; align-items: center; justify-content: space-between; }
+  .param .lb { font-size: 19px; font-weight: 500; color: #101114; }
+  .param .vl { font-size: 19px; font-weight: 500; color: #2F7BFF; }
+  .param .row2 { display: flex; align-items: center; gap: 13px; margin-top: 8px; }
+  .step {
+    width: 40px; height: 40px; border-radius: 50%; background: #F2F3F6; flex: none;
+    font-size: 21px; font-weight: 500; color: #565B63; line-height: 40px; text-align: center;
+  }
+  .track { position: relative; flex: 1; height: 7px; border-radius: 4px; background: #E7E9ED; }
+  .track.rainbow {
+    background: linear-gradient(90deg,
+      #FF3B30 0%, #FFCC00 17%, #34C759 33%, #32ADE6 50%,
+      #2F7BFF 67%, #C032E6 83%, #FF3B30 100%);
+  }
+  .fill { position: absolute; left: 0; top: 0; height: 7px; border-radius: 4px; background: #2F7BFF; }
+  .thumb {
+    position: absolute; top: -10px; width: 27px; height: 27px; border-radius: 50%;
+    background: radial-gradient(circle, #FAFBFC 0 71%, #EDEFF2 71% 100%);
+    box-shadow: 0 0 0 1px rgba(11,27,51,0.10), 0 2px 5px rgba(0,0,0,0.10);
+  }
+
+  .hint { display: flex; gap: 9px; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #A8ADB5; }
+  .hint .bdot { width: 6px; height: 6px; border-radius: 50%; background: #B9C0CB; margin-top: 8px; flex: none; }
+
+  .apply {
+    margin-top: 20px; border-radius: 21px; background: #2F7BFF; color: #FFFFFF;
+    font-size: 21px; font-weight: 500; text-align: center; padding: 23px 0;
+    box-shadow: 0 12px 26px rgba(47,123,255,0.34);
+  }
+  .foot { margin-top: 20px; font-size: 16px; line-height: 1.7; color: #A8ADB5; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="cols">
+    <div class="left">
+
+      <div class="head">
+        <div class="brand">
+          <div class="logo">
+            <svg width="66" height="66" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#FFFFFF" d="M54,23 C54,23 33,48 33,62.5 C33,74.2 42.4,83.5 54,83.5 C65.6,83.5 75,74.2 75,62.5 C75,48 54,23 54,23 Z"/>
+              <path fill="#332F6BFF" d="M54,36 C54,36 40.5,54 40.5,64 C40.5,71.6 46.5,77.6 54,77.6 L54,36 Z"/>
+              <path fill="#66FFFFFF" d="M44,58 C44,58 38.5,63.6 38.5,68.4 C38.5,72.2 41.4,75.1 45.2,75.1 C49,75.1 51.9,72.2 51.9,68.4 C51.9,63.6 44,58 44,58 Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="appname">屏幕滤镜</div>
+            <div class="meta">v1.0.0 &nbsp;·&nbsp; Android 8.0+</div>
+          </div>
+        </div>
+
+        <div style="margin-top:46px">
+          <div class="rule"></div>
+          <h1 class="title">把屏幕蒙成<br>你喜欢的颜色</h1>
+          <div class="subtitle">护眼遮光 · 全屏可自定义</div>
+        </div>
+      </div>
+
+      <div class="points">
+        <div>
+          <div class="pt-head"><div class="num">1</div><div class="pt-title">四条滑杆，慢慢拧</div></div>
+          <div class="pt-desc">色彩 / 灰度 / 不透明度 / 亮度，拖动即时预览</div>
+        </div>
+        <div>
+          <div class="pt-head"><div class="num">2</div><div class="pt-title">黑位不抬，暗部不糊</div></div>
+          <div class="pt-desc">压暗走纯黑层，纯黑乘任何数还是黑，对比度不塌</div>
+        </div>
+        <div>
+          <div class="pt-head"><div class="num">3</div><div class="pt-title">全屏覆盖，触摸穿透</div></div>
+          <div class="pt-desc">铺满刘海与挖孔，手照常点，蒙层不拦任何操作</div>
+        </div>
+        <div>
+          <div class="pt-head"><div class="num">4</div><div class="pt-title">下拉磁贴一键开关</div></div>
+          <div class="pt-desc">常驻通知显示当前参数，附带关闭按钮</div>
+        </div>
+        <div>
+          <div class="pt-head"><div class="num">5</div><div class="pt-title">纯离线，零网络权限</div></div>
+          <div class="pt-desc">参数与自存色卡本地保存，下次打开还是上回那组</div>
+        </div>
+      </div>
+
+      <div class="cmp">
+        <div class="cmp-h">压暗的两条路</div>
+        <div class="cmp-row">
+          <div class="cmp-cell">
+            <div class="cmp-sw" style="background:#626262"></div>
+            <div class="cmp-t">靠不透明度硬压</div>
+            <div class="cmp-d">黑位被抬到 #626262</div>
+          </div>
+          <div class="cmp-cell good">
+            <div class="cmp-sw" style="background:#121212"></div>
+            <div class="cmp-t">亮度走纯黑层</div>
+            <div class="cmp-d">黑位仍是 #121212</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right">
+      <div>
+        <div class="phone">
+          <div class="screen">
+
+            <div class="statusbar">
+              <div class="clock">9:41</div>
+              <div class="glyphs">
+                <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="10" width="4" height="6" rx="1.4" fill="#101114"/>
+                  <rect x="6.6" y="7" width="4" height="9" rx="1.4" fill="#101114"/>
+                  <rect x="13.2" y="4" width="4" height="12" rx="1.4" fill="#101114"/>
+                  <rect x="19.8" y="1" width="4" height="15" rx="1.4" fill="#101114" fill-opacity="0.26"/>
+                </svg>
+                <svg width="22" height="17" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.2 7.4 A 14.4 14.4 0 0 1 21.8 7.4" fill="none" stroke="#101114" stroke-width="2.1" stroke-linecap="round"/>
+                  <path d="M6.1 11.4 A 8.8 8.8 0 0 1 17.9 11.4" fill="none" stroke="#101114" stroke-width="2.1" stroke-linecap="round"/>
+                  <circle cx="12" cy="15.8" r="1.9" fill="#101114"/>
+                </svg>
+                <svg width="30" height="16" viewBox="0 0 30 16" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.8" y="0.8" width="25" height="14.4" rx="4.2" fill="none" stroke="#101114" stroke-opacity="0.34" stroke-width="1.6"/>
+                  <rect x="3" y="3" width="20.6" height="10" rx="2.6" fill="#101114"/>
+                  <path d="M28 5.7 v4.6 a2.3 2.3 0 0 0 0 -4.6 z" fill="#101114" fill-opacity="0.4"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="appbody">
+              <div class="apphead">
+                <div style="flex:1">
+                  <h2>滤镜</h2>
+                  <div class="sub">护眼遮光 · 全屏可自定义</div>
+                </div>
+                <div class="live"><div class="dot"></div><span>实时预览</span></div>
+              </div>
+
+              <div class="card">
+                <div class="sect"><span class="m">预设滤镜</span><span class="s">快速选择</span></div>
+
+                <div class="grid">
+                  <div class="cell"><div class="swatch" style="background:#E0E5EA"></div><div class="clabel">浅</div></div>
+                  <div class="cell"><div class="swatch" style="background:#B8C3CF"></div><div class="clabel">中</div></div>
+                  <div class="cell"><div class="swatch" style="background:#7F8D9A"></div><div class="clabel">深</div></div>
+                  <div class="cell"><div class="swatch on" style="background:#A9B7C3"></div><div class="clabel on">墨</div></div>
+                  <div class="cell"><div class="swatch" style="background:#D0CCC6"></div><div class="clabel">暖</div></div>
+                  <div class="cell"><div class="addchip"><div class="plus"></div></div><div class="clabel">添加</div></div>
+                </div>
+
+                <div class="hairline"></div>
+
+                <div class="sect"><span class="m">自定义</span><span class="s">参数微调</span><span class="spacer"></span><span class="pdot"></span></div>
+
+                <div style="margin-top:19px">
+
+                  <div class="param">
+                    <div class="row1"><span class="lb">色彩</span><span class="vl">208°</span></div>
+                    <div class="row2">
+                      <div class="step">−</div>
+                      <div class="track rainbow"><div class="thumb" style="left:calc(57.8% - 15.6px)"></div></div>
+                      <div class="step">+</div>
+                    </div>
+                  </div>
+
+                  <div class="param">
+                    <div class="row1"><span class="lb">灰度</span><span class="vl">20%</span></div>
+                    <div class="row2">
+                      <div class="step">−</div>
+                      <div class="track"><div class="fill" style="width:20%"></div><div class="thumb" style="left:calc(20% - 5.4px)"></div></div>
+                      <div class="step">+</div>
+                    </div>
+                  </div>
+
+                  <div class="param">
+                    <div class="row1"><span class="lb">不透明度</span><span class="vl">18%</span></div>
+                    <div class="row2">
+                      <div class="step">−</div>
+                      <div class="track"><div class="fill" style="width:18%"></div><div class="thumb" style="left:calc(18% - 4.9px)"></div></div>
+                      <div class="step">+</div>
+                    </div>
+                  </div>
+
+                  <div class="param">
+                    <div class="row1"><span class="lb">亮度</span><span class="vl">78%</span></div>
+                    <div class="row2">
+                      <div class="step">−</div>
+                      <div class="track"><div class="fill" style="width:78%"></div><div class="thumb" style="left:calc(78% - 21.1px)"></div></div>
+                      <div class="step">+</div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="hint">
+                  <div class="bdot"></div>
+                  <div>压暗走的是纯黑层，黑位不会被抬亮，所以「想更暗」请拉亮度、「想更有颜色」再抬不透明度 —— 两者互不干扰。</div>
+                </div>
+
+                <div class="apply">应用滤镜</div>
+              </div>
+
+              <div class="foot">开启后手指操作照常，蒙层不拦截触摸；下拉通知栏或快捷开关「屏幕滤镜」可随时关闭。</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="caption">界面为 App 实机布局 1:1 还原</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <b>边界说明</b>
+    <div>状态栏与导航栏不受染色 ·「亮度」只能往下压 ·「灰度」是叠色洗淡，非系统级去饱和</div>
+  </div>
+
+</div>
+</body>
+</html>
